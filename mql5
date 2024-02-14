@@ -1,0 +1,105 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                               Visual Depth of Market |
+//|                                                   forexroboteasy.com |
+//|                                                    Forex Robot Easy Team |
+//+------------------------------------------------------------------+
+
+// Define constants
+#property strict
+#property version('1.00')
+#property description('Visual Depth of Market Tool')
+#property link('https://www.forexroboteasy.com')
+
+// Define variables
+string symbol; // Symbol for which to display Depth of Market
+int maxLevels = 10; // Maximum number of levels to display
+color buyColor = clrGreen; // Color for buy orders
+color sellColor = clrRed; // Color for sell orders
+
+//+------------------------------------------------------------------+
+//| Custom indicator initialization function                         |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+   // Set the symbol
+   symbol = Symbol();
+
+   // Check if the symbol is valid
+   if(!SymbolInfoDouble(symbol, SYMBOL_BID))
+   {
+      Print('Invalid symbol: ', symbol);
+      return INIT_FAILED;
+   }
+
+   // Enable real-time updates
+   ChartSetInteger(0, CHART_AUTOSCROLL, false);
+
+   return INIT_SUCCEEDED;
+}
+
+//+------------------------------------------------------------------+
+//| Custom indicator iteration function                              |
+//+------------------------------------------------------------------+
+void OnCalculate(const int rates_total,
+                 const int prev_calculated,
+                 const datetime &time[],
+                 const double &open[],
+                 const double &high[],
+                 const double &low[],
+                 const double &close[],
+                 const long &tick_volume[],
+                 const long &volume[],
+                 const int &spread[])
+{
+   // Extract Level 2 order book data
+
+   // TODO: Implement code to retrieve Level 2 order book data
+
+   // Display Level 2 order book data on the trading chart
+
+   // TODO: Implement code to display the data on the chart
+
+   // Identify price levels with the largest order lots
+
+   // TODO: Implement code to identify price levels with significant order volume
+
+   // Highlight areas on the chart
+
+   // TODO: Implement code to visually highlight areas with heavy order concentration
+
+   // Auto-center the trading chart
+
+   // TODO: Implement code to automatically center the chart based on market conditions
+
+   // Update the chart in real-time
+
+   ChartRedraw();
+}
+
+//+------------------------------------------------------------------+
+//| Custom indicator deinitialization function                       |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+   // Clean up any resources
+
+   // TODO: Implement code to clean up resources
+
+   // Print the reason for deinitialization
+   Print('Visual Depth of Market deinitialized. Reason: ', reason);
+}
+
+//+------------------------------------------------------------------+
+//| Custom indicator parameters function                             |
+//+------------------------------------------------------------------+
+string GetSymbolName(const int index)
+{
+   // Get the name of a symbol by its index
+
+   // TODO: Implement code to retrieve the name of a symbol by its index
+
+   return '';
+}
+
+//+------------------------------------------------------------------+
